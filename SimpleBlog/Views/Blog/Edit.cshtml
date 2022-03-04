@@ -1,0 +1,45 @@
+﻿@model Post
+ 
+
+@{
+    ViewData["Title"] = "Edit";
+    //var posts = Model.Item1 as List<Post>;
+    //int id = Model.Item2 as int;
+    //Post post = posts[id];
+
+}
+
+<h1>Edit</h1>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <form asp-action="Edit" method="post" class="m-2">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Body">Body:</label>
+            <textarea asp-for="Body" class="form-control"></textarea>
+        </div>
+        <div hidden="@true" class="form-group">
+            <input asp-for="ID" />
+        </div>
+        <div hidden="@true"class="form-group">
+            <input asp-for="PostedOn" />
+        </div>
+
+        @Model.PostedOn
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+</body>
+
+</html>

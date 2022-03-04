@@ -1,0 +1,16 @@
+﻿@page "/Blogs/Category/{id}"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using SimpleBlog.Models;
+@model Blog.Pages.CategoryPageModel
+@{ Layout = null; }
+
+<h1>@Model.CategoryName</h1>
+<h1>@Model.TheGuy</h1>
+<ul>
+    @foreach (Post post in Model.Posts)
+    {
+        <li>
+            <h2>@post.Title</h2>
+        </li>    
+    }
+</ul>

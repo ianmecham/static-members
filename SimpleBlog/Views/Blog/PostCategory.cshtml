@@ -1,0 +1,35 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "PostCategory";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr><th>Title</th> <th>PostedOn</th> <th>EditedOn</th></tr>
+        </thead>
+        <tbody>
+        
+            @foreach (SimpleBlog.Models.PostCategory postcategory in Model.PostCategories)
+            {
+                        <tr>
+
+                            <td> <a asp-route-ID="@postcategory.Post.ID" asp-action="Detail">@postcategory.Post.Title</a></td>
+                            <td>@postcategory.Post.PostedOn</td>
+                            <td>@postcategory.Post.EditedOn</td>
+                        </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="NewPost">Add NewPost</a>
+
+</body>
+
+</html>

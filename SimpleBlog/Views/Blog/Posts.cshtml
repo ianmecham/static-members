@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Post>
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h1>Posts</h1>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Posts</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+
+<body>
+
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr><th>Title</th> <th>PostedOn</th> <th>EditedOn</th></tr>
+        </thead>
+        <tbody>
+            @foreach (SimpleBlog.Models.Post post in Model)
+            {
+                <tr>
+
+                    <td> <a asp-route-id="@post.ID" asp-controller="Blog" asp-action="Detail">@post.Title</a></td>
+                    <td>@post.PostedOn</td>
+                    <td>@post.EditedOn</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="NewPost">New Post</a>
+    <a asp-action="Categories">Categories</a>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h1>Posts</h1>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Posts</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+
+<body>
+
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr><th>Category</th></tr>
+        </thead>
+        <tbody>
+            @foreach (SimpleBlog.Models.Category category in Model)
+            {
+                <tr>
+
+                    <td> <a asp-route-ID="@category.CategoryId" asp-action="PostCategory">@category.CategoryName</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="NewPost">NewPost</a>
+
+</body>
+
+</html>
